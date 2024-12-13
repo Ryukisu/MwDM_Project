@@ -24,7 +24,7 @@ test_dataset = torchvision.datasets.CIFAR10(root='./data', train=False, download
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-
+# Pierwsza wersja modelu, która opierała się o pierwotne polecenie, a więc model oparty wyłącznie na w pełni połączonych warstwach.
 # 2. Definicja modelu
 # class FullyConnectedNN(nn.Module):
 #     def __init__(self, input_size, num_classes):
@@ -56,6 +56,7 @@ test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 # num_classes = 10
 # model = FullyConnectedNN(input_size, num_classes)
 
+#Model ostateczny, po dodaniu kilku warstw konwolucyjnych co znacząco poprawiło skuteczność.
 class CNNWithFullyConnected(nn.Module):
     def __init__(self, num_classes):
         super(CNNWithFullyConnected, self).__init__()
